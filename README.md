@@ -1,49 +1,45 @@
 # Landing Page — Luiz Octávio Netto (Luizão Personal)
 
 ## Como usar
-Abra `index.html` em qualquer navegador — não precisa de servidor nem instalação.
-Para publicar, envie a pasta inteira (`index.html`, `css/`, `js/`, `img/`) para qualquer
-hospedagem estática (Netlify, Vercel, GitHub Pages, cPanel, etc.).
+Abra `index.html` em qualquer navegador. Para publicar, envie a pasta inteira
+(`index.html`, `css/`, `js/`, `img/`) para qualquer hospedagem estática
+(Netlify, Vercel, GitHub Pages, cPanel, etc.).
 
-## Estrutura
-```
-/index.html
-/css/style.css
-/js/script.js
-/img/  (14 fotos do Luiz + antes/depois, organizadas por seção, sem repetição)
-```
+## Estrutura da página (v3 — reestruturada com base nas referências)
+1. **Hero** — headline + CTA + foto
+2. **Barra de estatísticas** — 4 indicadores logo abaixo do hero (novo, estilo referência)
+3. **Realidade sem filtros**
+4. **Sobre / Quem é Luiz** — agora com checklist de entregáveis
+5. **Conheça o Especialista** — card de destaque só dele (adaptado da "grade de treinadores"
+   das referências, já que ele trabalha sozinho)
+6. **Programas** — 4 cards (Emagrecimento, Performance, Força, Mentalidade), novo,
+   estilo dos cards de ícone das referências — sem foto, pra não repetir imagem
+7. **O Método**
+8. **Rotina**
+9. **Lifestyle**
+10. **Resultados** — agora com 1 antes/depois em destaque (featured, como na referência
+    IronForge) + 2 fotos secundárias
+11. **Depoimentos**
+12. **CTA final**
+13. **Footer**
 
-## O que foi corrigido nesta versão
-- **Botão do WhatsApp no menu:** agora é verde (igual ao padrão WhatsApp) em vez de
-  vermelho — melhora a legibilidade e reforça a ação principal.
-- **Foto sobreposta no Hero:** removida a foto pequena que ficava "grudada" em cima da
-  foto principal e quebrava o layout. O Hero agora tem uma única foto limpa.
-- **Fotos repetidas:** cada imagem agora aparece uma única vez no site. A galeria
-  "Sobre" trocou a foto de bike (que cortava) pela nova foto de academia; a seção
-  "Realidade" ganhou uma foto própria (antes reaproveitava a do Hero).
-- **Foto da bike cortada:** movida para a seção "Lifestyle", agora exibida por inteiro
-  (sem cortar rodas/guidão) em vez de esticada como fundo.
-- **Foto da moto cortada:** mesma correção — agora aparece inteira, lado a lado com a
-  foto da bike, na seção "Lifestyle".
-- **Foto cortada atrás de "Chega de dar desculpas para sua saúde":** ajustada para
-  aparecer completa (sem cortar rosto/corpo), com um degradê mais suave por trás do texto.
-- **Novas seções adicionadas:**
-  - **Resultados:** as 3 fotos de antes/depois enviadas agora aparecem de verdade
-    (antes eram placeholders "Em breve").
-  - **Rotina:** nova seção com 2 fotos inéditas do Luiz (corrida e dia a dia), para
-    dar mais variedade sem repetir imagem.
+Sem preço/mensalidade (conforme decidido) e sem grade de equipe (ele é sozinho).
+
+## O que mudou visualmente
+- Cards com cantos arredondados (10-14px) — visual mais moderno, menos "afiado"
+  que a v2, mantendo o preto/vermelho e a tipografia Bebas Neue + Poppins.
+- Ícones em círculo vermelho translúcido, no padrão das referências.
+- Contador "+5.000" saiu do "Sobre" e foi para a barra de estatísticas, logo
+  após o hero (mais visível, mais cedo na página).
 
 ## Edição rápida
-- **WhatsApp:** o número https://wa.me/5531995242422 aparece em 3 lugares —
-  botão do menu, CTA final e botão flutuante. Buscar/substituir se mudar o número.
-- **Mais resultados:** para adicionar mais antes/depois, duplique um bloco
-  `.result-photo` na seção `#resultados` do `index.html` e aponte para uma nova imagem
-  em `/img`.
-- **Depoimentos:** seção `#depoimentos` — duplique um `.testi-card` para adicionar mais.
-- **Contador "+5.000":** controlado por `data-count="5000"` no HTML — só trocar o número.
-- **Cores/fontes:** tudo centralizado em `:root` no topo do `css/style.css`.
+- **WhatsApp:** https://wa.me/5531995242422 — aparece em vários botões, inclusive
+  nos cards de "Programas". Buscar/substituir se mudar o número.
+- **Estatísticas:** editar direto no bloco `<section class="stat-bar">` no index.html.
+- **Programas:** cada `.program-card` é independente — copiar o bloco pra adicionar mais.
+- **Depoimentos / Resultados:** mesma lógica de antes, documentada abaixo.
+- **Cores/fontes:** tudo em `:root` no topo do `css/style.css`.
 
 ## Fontes e ícones
-Carregados via CDN (Google Fonts — Bebas Neue + Poppins, Font Awesome, AOS.js para
-as animações de scroll). Isso exige conexão com a internet no navegador do visitante
-— comportamento normal, sem custo, sem chave de API.
+Carregados via CDN (Google Fonts, Font Awesome, AOS.js) — precisa de internet no
+navegador do visitante, sem custo e sem chave de API.
