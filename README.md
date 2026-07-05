@@ -2,44 +2,31 @@
 
 ## Como usar
 Abra `index.html` em qualquer navegador. Para publicar, envie a pasta inteira
-(`index.html`, `css/`, `js/`, `img/`) para qualquer hospedagem estática
-(Netlify, Vercel, GitHub Pages, cPanel, etc.).
+(`index.html`, `css/`, `js/`, `img/`) para qualquer hospedagem estática.
 
-## Estrutura da página (v3 — reestruturada com base nas referências)
-1. **Hero** — headline + CTA + foto
-2. **Barra de estatísticas** — 4 indicadores logo abaixo do hero (novo, estilo referência)
-3. **Realidade sem filtros**
-4. **Sobre / Quem é Luiz** — agora com checklist de entregáveis
-5. **Conheça o Especialista** — card de destaque só dele (adaptado da "grade de treinadores"
-   das referências, já que ele trabalha sozinho)
-6. **Programas** — 4 cards (Emagrecimento, Performance, Força, Mentalidade), novo,
-   estilo dos cards de ícone das referências — sem foto, pra não repetir imagem
-7. **O Método**
-8. **Rotina**
-9. **Lifestyle**
-10. **Resultados** — agora com 1 antes/depois em destaque (featured, como na referência
-    IronForge) + 2 fotos secundárias
-11. **Depoimentos**
-12. **CTA final**
-13. **Footer**
+## Correções desta versão
+- **Scroll lateral no mobile (bug raiz):** o botão do Hero tinha um texto longo
+  com `white-space: nowrap`, e por estar dentro de um grid sem `min-width: 0`,
+  isso forçava a seção inteira a ficar mais larga que a tela — causando o corte
+  de texto e a barra de rolagem lateral. Corrigido: botões agora quebram linha
+  em telas pequenas, e um `min-width: 0` de segurança foi aplicado a todos os
+  elementos para evitar esse tipo de "estouro" em qualquer seção futura.
+  Testado sem overflow em 320px, 360px, 375px, 390px, 414px e 1440px.
+- **Foto da galeria "Sobre" cortando a cabeça:** ajustado o enquadramento
+  (object-position) para manter o rosto visível.
+- **Foto do "Especialista" mostrando só o topo da cabeça:** a legenda antiga
+  ("Seu corpo não está mais pesado...") estava no TOPO da imagem original, e o
+  ajuste anterior tentava escondê-la empurrando o corte pra baixo — só que
+  isso empurrou o rosto pra fora do quadro também. Agora a imagem foi
+  recortada de verdade (removendo a faixa de legenda) e exibida com
+  enquadramento normal, sem gambiarra de CSS.
+- **Animações lentas:** duração do AOS reduzida de 800ms para 450ms, atrasos
+  entre elementos reduzidos, e o contador "+5.000" acelerado de 1,8s para 1s.
 
-Sem preço/mensalidade (conforme decidido) e sem grade de equipe (ele é sozinho).
-
-## O que mudou visualmente
-- Cards com cantos arredondados (10-14px) — visual mais moderno, menos "afiado"
-  que a v2, mantendo o preto/vermelho e a tipografia Bebas Neue + Poppins.
-- Ícones em círculo vermelho translúcido, no padrão das referências.
-- Contador "+5.000" saiu do "Sobre" e foi para a barra de estatísticas, logo
-  após o hero (mais visível, mais cedo na página).
-
-## Edição rápida
-- **WhatsApp:** https://wa.me/5531995242422 — aparece em vários botões, inclusive
-  nos cards de "Programas". Buscar/substituir se mudar o número.
-- **Estatísticas:** editar direto no bloco `<section class="stat-bar">` no index.html.
-- **Programas:** cada `.program-card` é independente — copiar o bloco pra adicionar mais.
-- **Depoimentos / Resultados:** mesma lógica de antes, documentada abaixo.
-- **Cores/fontes:** tudo em `:root` no topo do `css/style.css`.
+## Estrutura
+Ver histórico de versões anteriores — estrutura de seções não mudou nesta
+rodada, só correções de bug e performance.
 
 ## Fontes e ícones
-Carregados via CDN (Google Fonts, Font Awesome, AOS.js) — precisa de internet no
-navegador do visitante, sem custo e sem chave de API.
+Carregados via CDN (Google Fonts, Font Awesome, AOS.js) — precisa de internet
+no navegador do visitante, sem custo e sem chave de API.

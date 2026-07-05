@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
   /* ---------- AOS init ---------- */
   if (window.AOS) {
     AOS.init({
-      duration: 800,
+      duration: 450,
       easing: 'ease-out-cubic',
       once: true,
-      offset: 80
+      offset: 60
     });
   }
 
@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function () {
     counted = true;
     counters.forEach(function (el) {
       var target = parseInt(el.getAttribute('data-count'), 10);
-      var duration = 1800;
+      var duration = 1000;
       var start = null;
 
       function step(ts) {
