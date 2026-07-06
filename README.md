@@ -4,29 +4,29 @@
 Abra `index.html` em qualquer navegador. Para publicar, envie a pasta inteira
 (`index.html`, `css/`, `js/`, `img/`) para qualquer hospedagem estática.
 
-## Correções desta versão
-- **Scroll lateral no mobile (bug raiz):** o botão do Hero tinha um texto longo
-  com `white-space: nowrap`, e por estar dentro de um grid sem `min-width: 0`,
-  isso forçava a seção inteira a ficar mais larga que a tela — causando o corte
-  de texto e a barra de rolagem lateral. Corrigido: botões agora quebram linha
-  em telas pequenas, e um `min-width: 0` de segurança foi aplicado a todos os
-  elementos para evitar esse tipo de "estouro" em qualquer seção futura.
-  Testado sem overflow em 320px, 360px, 375px, 390px, 414px e 1440px.
-- **Foto da galeria "Sobre" cortando a cabeça:** ajustado o enquadramento
-  (object-position) para manter o rosto visível.
-- **Foto do "Especialista" mostrando só o topo da cabeça:** a legenda antiga
-  ("Seu corpo não está mais pesado...") estava no TOPO da imagem original, e o
-  ajuste anterior tentava escondê-la empurrando o corte pra baixo — só que
-  isso empurrou o rosto pra fora do quadro também. Agora a imagem foi
-  recortada de verdade (removendo a faixa de legenda) e exibida com
-  enquadramento normal, sem gambiarra de CSS.
-- **Animações lentas:** duração do AOS reduzida de 800ms para 450ms, atrasos
-  entre elementos reduzidos, e o contador "+5.000" acelerado de 1,8s para 1s.
+## Ajuste de "página muito escura" (baseado na referência BearFit enviada)
+O que estava apagando a energia da página:
+- **Fotos com filtro pesado:** todas as imagens tinham `grayscale(55%)` +
+  escurecimento + um overlay preto por cima — isso deixava toda foto cinza e
+  sem vida. Troquei por `saturate(1.15)` (realça a cor real da foto) e um
+  overlay bem mais leve, só para dar unidade visual.
+- **Ícones quase invisíveis:** os círculos de ícone (stat bar, cards de
+  Programas, Método) eram vermelho a 10% de opacidade — muito sutil. Agora são
+  vermelho sólido com leve brilho (glow), do jeito que a referência usa verde
+  sólido nos badges dela.
+- **Vermelho pouco vibrante:** o vermelho da marca foi de `#e30613` para
+  `#ff2d3d` — mais vivo, mais próximo da energia que a referência tem com o
+  verde-limão.
+- **Preto muito seco:** o fundo saiu de um preto puro (`#050505`) para um
+  quase-preto levemente mais claro (`#0a0a0d`), e o Hero ganhou um brilho
+  vermelho suave (radial glow) atrás da foto, pra dar profundidade — como a
+  referência faz com o fundo verde-escuro atrás das fotos.
+
+A identidade (preto + vermelho + Bebas Neue/Poppins) continua a mesma — só
+ficou mais viva, sem precisar copiar a paleta verde-limão da referência.
 
 ## Estrutura
-Ver histórico de versões anteriores — estrutura de seções não mudou nesta
-rodada, só correções de bug e performance.
+Sem mudanças estruturais nesta rodada — só paleta e tratamento visual.
 
 ## Fontes e ícones
-Carregados via CDN (Google Fonts, Font Awesome, AOS.js) — precisa de internet
-no navegador do visitante, sem custo e sem chave de API.
+Carregados via CDN (Google Fonts, Font Awesome, AOS.js).
